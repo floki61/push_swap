@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    sa(struct node** a)
+void    sa(struct node** a,char *str)
 {
 	int swap;
 
@@ -10,11 +10,8 @@ void    sa(struct node** a)
 	swap = (*a)->data;
 	(*a)->data = (*a)->next->data;
 	(*a)->next->data = swap;
-	// if (print)
-	// {
-	// 	ft_putstr(print);
-	// 	write(1, "\n", 1);
-	// }
+	write(1, str, 3);
+	write(1, "\n", 1);
 }
 
 void    sb(struct node** b)
@@ -27,25 +24,11 @@ void    sb(struct node** b)
 	swap = (*b)->data;
 	(*b)->data = (*b)->next->data;
 	(*b)->next->data = swap;
+	write(1, "sb\n",3);
 }
 void	ss(struct node** stack_a,struct node** stack_b)
 {
-	sa(stack_a);
+	sa(stack_a,"sa");
 	sb(stack_b);
-}
-
-int main(int argc,char *argv[])
-{
-    struct node* head;
-
-    if(argc < 2 || !lineardata_data(argv,&head))
-		return (0);
-	if(--argc == 3)
-		sort_3(&head);
-	while(head != NULL)
-	{
-		printf("%d\n",head->data);
-		head = head->next;
-	}
-	return 0;
+	write(1, "ss\n",3);
 }

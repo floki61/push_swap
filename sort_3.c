@@ -2,35 +2,28 @@
 
 void    sort_3(struct node** a)
 {
-    int _1;
-    int _2;
-    int _3;
+    int _1_;
+    int _2_;
+    int _3_;
 
-    _1 = (*a)->data;
-    _2 = (*a)->next->data;
-    _3 = (*a)->next->next->data;
+    _1_ = (*a)->data;
+    _2_ = (*a)->next->data;
+    _3_ = (*a)->next->next->data;
 
-    //3 2 1
-    if (_1 > _2 && _2 > _3)
+    if (_1_ > _2_ && _2_ > _3_)
     {
-      sa(a);
+      sa(a,"sa");
       rra(a);
     }
-    //2 1 3
-    else if (_1 > _2 && _1 < _3)
-      sa(a);
-    //3 1 2
-    else if (_1 > _3 && _2 < _3)
+    else if (_1_ > _2_ && _1_ < _3_)
+      sa(a,"sa");
+    else if (_1_ > _3_ && _2_ < _3_)
       ra(a);
-    //1 3 2
-    else if (_1 < _2 && _2 > _3 && _1 < _3)
+    else if (_1_ < _2_ && _2_ > _3_ && _1_ < _3_)
     {
-      sa(a);
+      sa(a,"sa");
       ra(a);
     }
-    //2 3 1
-    else if (_1 < _2 && _2 > _3 && _1 > _3)
-    {
+    else if (_1_ < _2_ && _2_ > _3_ && _1_ > _3_)
       rra(a);
-    }
 }

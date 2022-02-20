@@ -15,6 +15,7 @@ void rra(struct node** stack)
 	free(tmp);
 	newnode->next = *stack;
 	*stack = newnode;
+	write(1, "rra\n",4);
 }
 
 void ra(struct node** stack)
@@ -29,6 +30,7 @@ void ra(struct node** stack)
 	ft_lstlast(tmp)->next = *stack;
 	(*stack)->next = NULL;
 	*stack = head;
+	write(1, "ra\n",3);
 }
 
 
