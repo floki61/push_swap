@@ -21,10 +21,10 @@ int main(int argc,char *argv[])
 	else if (argc > 5)
 		sort(&stack_a,&stack_b);
 
-	while(stack_a != NULL)
-	{
-		printf("%d\n",stack_a->data);
-		stack_a = stack_a->next;
-	}
+	// while(stack_a != NULL)
+	// {
+	// 	printf("%d\n",stack_a->data);
+	// 	stack_a = stack_a->next;
+	// }
 	return 0;
 }

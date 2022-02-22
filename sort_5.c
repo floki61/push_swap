@@ -22,3 +22,4 @@ void    sort_5(struct node   **a,struct node   **b)
     sort_4(a,b);
     pa(a,b);
 }
+

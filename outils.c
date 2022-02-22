@@ -30,3 +30,23 @@ int	lent_stack(struct   node  *stack)
 	}
 	return (i);
 }
+  void  trtib(struct node **a)
+  {
+  int pos;
+    int i;
+    int d;
+
+    i = 0;
+    pos = check_min(*a);
+    d = position(*a,&i,pos);
+    if(d == 1)
+    {
+        while(i-- > 0)
+            ra(a);
+    }
+    else
+    {
+        while(i-- > 0)
+            rra(a);
+    }
+}

@@ -34,5 +34,10 @@ int	position(struct node *stack, int *i, int pos);
 int	lent_stack(struct node  *stack);
 void    sort(struct node   **a,struct node   **b);
 int    check_max(struct node   *stack);
+int    move_num(struct node **a,int pos,int *k);
+int nearest_num(struct node **a,int	b);
+int    check_end(struct node **stack);
+void    sort_help(struct node **a,struct node **b);
+void  trtib(struct node **a);
 
 #endif

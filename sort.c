@@ -28,28 +28,68 @@
 //         pa(a,b);
 //     }
 // }
-int    check_end(struct node **a,struct node **b)
+int    check_end(struct node **stack)
 {
     struct node *tmp;
-    tmp = a;
+    tmp = *stack;
     while(tmp->next)
     {
         tmp = tmp->next;
     }
     return(tmp->data);
 }
-int nearest_num(struct node **a,struct node **b)
+int nearest_num(struct node **a,int b)
 {
     struct node *tmp;
     int i;
+    int a1;
+    int j;
+    int pos;
 
-    tmp = a;
-    i = 0
+    tmp = *a;
+    i = 2147483647;
+    pos = 1;
     while(tmp)
     {
-        if(tmp->data > (*b)->data)
+        a1 = tmp->data - b;
+        if(tmp->data > b && i > a1)
+        {
+            i = a1;
+            j = tmp->data;
+            
+        }
+        tmp = tmp->next;
     }
+    tmp = *a;
+    while(tmp->data != j)
+    {
+        pos++;
+        tmp = tmp->next;
+    }
+    return(pos);
 }
+int    move_num(struct node **a,int pos,int *k)
+{
+    int move;
+    int d;
+    int i;
+
+    move = 0;
+    d = position(*a,&i,pos);
+    *k = d;
+    if(d == 1)
+    {
+        while(i-- > 0)
+            move++;
+    }
+    else
+    {
+        while(i-- > 0)
+            move++;
+    }
+    return (move);
+}
+
 void sort(struct node **a,struct node **b)
 {
     struct node *tmp;
@@ -57,14 +97,14 @@ void sort(struct node **a,struct node **b)
     int max;
     int i;
     int lent;
+    int end;
 
     i = 1;
     lent = lent_stack(*a);
     tmp = *a;
     min = check_min(*a);
     max = check_max(*a);
-
-
+    end = check_end(a);
     while(lent-- > 0)
     {
         if(i == min || i == max)
@@ -73,5 +113,56 @@ void sort(struct node **a,struct node **b)
             pb(a,b);
         i++;
     }
+    sort_help(a,b);
+    trtib(a);
+    
+}
+void    sort_help(struct node **a,struct node **b)
+{
+    int p;
+    int k;
+    int move_num1;
+    int move_num2;
+    int d;
 
+    p = nearest_num(a,(*b)->data);
+    k = nearest_num(a,check_end(b));
+    move_num1 = move_num(a,p,&d);
+    move_num2 = move_num(a,k,&d);
+    while(lent_stack(*b))
+    {
+        p = nearest_num(a,(*b)->data);
+        k = nearest_num(a,check_end(b));
+        move_num1 = move_num(a,p,&d);
+        move_num2 = move_num(a,k,&d);
+        if(move_num1 <= move_num2 + 1)
+        {
+            if(d == 1)
+            {
+                while(move_num1-- > 0)
+                    ra(a);
+            }
+            else
+            {
+                while(move_num1-- > 0)
+                    rra(a);
+            }
+            pa(a,b);
+        }
+        else
+        {
+            if(d == 1)
+            {
+                while(move_num2-- > 0)
+                    ra(a);
+            }
+            else
+            {
+                while(move_num2-- > 0)
+                    rra(a);
+            }
+            rra(b);
+            pa(a,b);
+        }
+    }
 }
