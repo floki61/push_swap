@@ -20,6 +20,6 @@ int main(int argc,char *argv[])
 		sort_5(&stack_a,&stack_b);
 	else if (argc > 5)
 		sort0(&stack_a,&stack_b);
-	print_stack(stack_a);
+	// print_stack(stack_a);
 	return 0;
 }

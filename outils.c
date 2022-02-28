@@ -184,7 +184,10 @@ void sorted(int index,int	i,struct node **stack)
 	else
 	{
 		while(i-- > 0)
+		{
+			// printf(">>>> %d\n", (*stack)->next->data);
 			rra(stack);
+		}
 	}
 }
 

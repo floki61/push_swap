@@ -2,6 +2,8 @@
 
 void rra(struct node** stack)
 {
+	if (!(*stack) || !(*stack)->next)
+		return ;
 	struct node *tmp = *stack;
 	struct node* prev;
 	struct node* newnode = malloc(sizeof(struct node));
@@ -10,7 +12,7 @@ void rra(struct node** stack)
 		prev = tmp;
 		tmp = tmp->next;
 	}
-	prev->next = tmp->next;
+	prev->next = NULL;
 	newnode->data = tmp->data;
 	free(tmp);
 	newnode->next = *stack;
