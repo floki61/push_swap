@@ -10,6 +10,7 @@
 struct node{
 	int data;
 	struct node* next;
+	int value;
 };
 
 void    sa(struct node** a,char *str);
@@ -32,12 +33,17 @@ void	pa(struct node** a, struct node** b);
 int    check_min(struct node   *stack);
 int	position(struct node *stack, int *i, int pos);
 int	lent_stack(struct node  *stack);
-void    sort(struct node   **a,struct node   **b);
+void    sort0(struct node **a,struct node**b);
 int    check_max(struct node   *stack);
-int    move_num(struct node **a,int pos,int *k);
-int nearest_num(struct node **a,int	b);
+int    move_num(struct node **a,struct node **b);
+int nearest_num(struct node **a,struct node **b);
 int    check_end(struct node **stack);
 void    sort_help(struct node **a,struct node **b);
 void  trtib(struct node **a);
+int    check_min_value(struct node   *stack);
+void    print_stack(struct node *a);
+void printf_value(struct node *stack);
+void    value(struct node *b,struct node *a);
+void sorted(int index,int   i,struct node **stack);
 
 #endif

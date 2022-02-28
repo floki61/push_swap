@@ -19,12 +19,7 @@ int main(int argc,char *argv[])
 	else if (argc == 5)
 		sort_5(&stack_a,&stack_b);
 	else if (argc > 5)
-		sort(&stack_a,&stack_b);
-
-	// while(stack_a != NULL)
-	// {
-	// 	printf("%d\n",stack_a->data);
-	// 	stack_a = stack_a->next;
-	// }
+		sort0(&stack_a,&stack_b);
+	print_stack(stack_a);
 	return 0;
 }
