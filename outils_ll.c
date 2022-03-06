@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort0.c                                            :+:      :+:    :+:   */
+/*   outils_ll.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 16:35:50 by oel-berh          #+#    #+#             */
+/*   Created: 2022/03/03 15:27:07 by oel-berh          #+#    #+#             */
 /*   Updated: 2022/03/06 19:07:09 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort0(t_node **a, t_node **b)
+void	ft_lstadd_back(t_node **alst, t_node *new)
 {
-	int	lent;
-	int	i;
-	int	pos;
+	new->next = NULL;
+	if (!*alst)
+		*alst = new;
+	else
+		(ft_lstlast(*alst))->next = new;
+}
 
-	minmax (a, b);
-	lent = lent_stack (*b);
-	while (lent--)
-	{
-		value (*a, *b);
-		pos = position (*b, &i, check_min_value (*b));
-		sorted (pos, i, b);
-		pos = position (*a, &i, nearest_num (a, b));
-		sorted (pos, i, a);
-		pa (a, b);
-	}
-	roue (a);
+t_node	*ft_lstnew(int content)
+{
+	t_node	*new;
+
+	new = (t_node *) malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->data = content;
+	new->next = NULL;
+	return (new);
+}
+
+t_node	*ft_lstlast(t_node *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst -> next)
+		lst = lst -> next;
+	return (lst);
 }

@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/03 14:32:22 by oel-berh          #+#    #+#             */
+/*   Updated: 2022/03/03 15:24:53 by oel-berh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
@@ -48,33 +60,3 @@ long long	ft_atoi(const char *str)
 	}
 	return (result * negativity);
 }	
-
-void	ft_lstadd_back(struct node **alst, struct node *new)
-{
-	new->next = NULL;
-	if (!*alst)
-		*alst = new;
-	else
-		(ft_lstlast(*alst))->next = new;
-}
-
- struct node	*ft_lstnew(int content)
-{
-	 struct node	*new;
-
-	new = ( struct node *) malloc(sizeof( struct node));
-	if (!new)
-		return (NULL);
-	new->data = content;
-	new->next = NULL;
-	return (new);
-}
-
-struct node	*ft_lstlast(struct node *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst -> next)
-		lst = lst -> next;
-	return (lst);
-}
