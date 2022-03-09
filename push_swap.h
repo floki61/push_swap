@@ -28,8 +28,8 @@ typedef struct s_node
 
 void		sa(t_node **a, char	*str);
 void		sb(t_node **b);
-void		ra(t_node **a);
-void		rra(t_node **a);
+void		rotate(t_node **stack, int i);
+void		reverse_r(t_node **stack, int i);
 void		pa(t_node **a, t_node **b);
 void		pb(t_node **a, t_node **b);
 void		sort0(t_node **a, t_node **b);
@@ -49,13 +49,16 @@ int			check_max(t_node *stack);
 int			check_min_value(t_node *stack);
 int			move_num(t_node **a, t_node **b);
 void		value(t_node *a, t_node *b);
-void		sorted(int index, int i, t_node **stack);
+void		sorted(int index, int i, t_node **stack, int j);
 void		minmax(t_node **a, t_node **b);
 int			position(t_node *stack, int *i, int pos);
 int			lent_stack(t_node *stack);
 void		roue(t_node **a);
 int			nearest_num(t_node **a, t_node **b);
 int			pos_nearest_num(t_node **a, int j);
+int    		is_sorted(t_node *a);
+char    	*its_sorted(t_node *a);
+char *get_next_line(int fd);
 
 // int    check_end(t_node **stack);
 // void    sort_help(t_node **a,t_node **b);

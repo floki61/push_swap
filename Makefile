@@ -2,9 +2,12 @@ NAME=push_swap.a
 
 SRCS =	push_swap.c 		\
 		check_minmax.c		\
-		error.c libft.c		\
-		outils.c push.c 	\
-		rotate.c sort0.c 	\
+		error.c 			\
+		libft.c				\
+		outils.c			\
+		push.c 				\
+		rotate.c			\
+		sort0.c 			\
 		small_sort.c		\
 		swap.c				\
 		outils_ll.c			\
@@ -28,7 +31,7 @@ OBJS =	push_swap.o			\
 all: $(NAME)
 
 $(NAME) :
-	@gcc $(FLAGS) $(SRCS) -o $(NAME)
+	@gcc $(FLAGS) $(SRCS)
 	@ar rc $(NAME) $(OBJS)
 	
 clean:

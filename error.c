@@ -6,12 +6,11 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:27:09 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/06 19:07:09 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/09 17:40:51 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 static	int	check_numbers(char *argv[])
 {
 	int	i;

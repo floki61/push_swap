@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	rra(t_node **stack)
+void	reverse_r(t_node **stack, int i)
 {
 	t_node	*tmp;
 	t_node	*prev;
@@ -32,10 +32,13 @@ void	rra(t_node **stack)
 	free (tmp);
 	newnode->next = *stack;
 	*stack = newnode;
-	write(1, "rra\n", 4);
+	if (i == 1)
+		write (1, "rra\n", 4);
+	else
+		write (1, "rrb\n", 4);
 }
 
-void	ra(t_node **stack)
+void	rotate(t_node **stack, int i)
 {
 	t_node	*tmp;
 	t_node	*head;
@@ -47,5 +50,8 @@ void	ra(t_node **stack)
 	ft_lstlast(tmp)->next = *stack;
 	(*stack)->next = NULL;
 	*stack = head;
-	write (1, "ra\n", 3);
+	if (i == 1)
+		write (1, "ra\n", 3);
+	else
+		write (1, "rb\n", 3);
 }

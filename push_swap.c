@@ -6,7 +6,7 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:50:00 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/06 22:51:37 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/08 22:16:56 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(int argc, char *argv[])
 		sort_5 (&stack_a, &stack_b);
 	else if (argc > 5)
 		sort0 (&stack_a, &stack_b);
-	print_stack (stack_a);
-	system("leaks a.out");
+	// print_stack (stack_a);
+	// system("leaks a.out");
+	// printf("%s\n",is_sorted(stack_a));
 	return (0);
 }

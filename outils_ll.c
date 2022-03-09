@@ -6,7 +6,7 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:27:07 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/06 19:07:09 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:15:16 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,4 @@ t_node	*ft_lstlast(t_node *lst)
 		lst = lst -> next;
 	return (lst);
 }
+

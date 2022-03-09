@@ -6,7 +6,7 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:04:34 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/06 19:20:54 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/07 18:57:18 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,6 @@ void	value(t_node *a, t_node *b)
 	}
 }
 
-void	sorted(int index, int i, t_node **stack)
-{
-	if (index == 1)
-	{
-		while (i-- > 0)
-			ra (stack);
-	}
-	else
-	{
-		while (i-- > 0)
-			rra (stack);
-	}
-}
-
 void	minmax(t_node **a, t_node **b)
 {
 	int	lent;
@@ -109,7 +95,7 @@ void	minmax(t_node **a, t_node **b)
 	while (lent-- > 0)
 	{
 		if (i == min || i == max)
-			ra (a);
+			rotate (a, 1);
 		else
 			pb (a, b);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:31:00 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/06 22:53:15 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/08 04:35:42 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ void	roue(t_node **a)
 	if (d == 1)
 	{
 		while (i-- > 0)
-			ra (a);
+			rotate (a, 1);
 	}
 	else
 	{
 		while (i-- > 0)
-			rra (a);
+			reverse_r (a, 1);
 	}
 }
 
@@ -122,6 +122,17 @@ void	print_stack(t_node *a)
 		printf ("%d\n", a->data);
 		a = a->next;
 	}
+}
+
+char    *its_sorted(t_node *a)
+{
+    while(a->next)
+    {
+        if(a->data > a->next->data)
+            return ("ko");
+        a = a->next;
+    }
+    return ("ok");
 }
 
 // void printf_value(t_node *stack)

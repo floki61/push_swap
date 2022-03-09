@@ -6,7 +6,7 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:43:00 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/06 22:51:17 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/07 18:57:45 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ void	sort_3(t_node **a)
 	if (_1_ > _2_ && _2_ > _3_)
 	{
 		sa (a, "sa");
-		rra (a);
+		reverse_r (a, 1);
 	}
 	else if (_1_ > _2_ && _1_ < _3_)
 		sa (a, "sa");
 	else if (_1_ > _3_ && _2_ < _3_)
-		ra (a);
+		rotate (a, 1);
 	else if (_1_ < _2_ && _2_ > _3_ && _1_ < _3_)
 	{
 		sa (a, "sa");
-		ra (a);
+		rotate (a, 1);
 	}
 	else if (_1_ < _2_ && _2_ > _3_ && _1_ > _3_)
-		rra (a);
+		reverse_r (a, 1);
 }
 
 void	sort_4(t_node **a, t_node **b)
@@ -54,7 +54,7 @@ void	sort_4(t_node **a, t_node **b)
 	i = 0;
 	pos = check_min (*a);
 	d = position(*a, &i, pos);
-	sorted(d, i, a);
+	sorted(d, i, a, 1);
 	pb (a, b);
 	sort_3 (a);
 	pa (a, b);
@@ -69,7 +69,7 @@ void	sort_5(t_node **a, t_node **b)
 	i = 0;
 	pos = check_min (*a);
 	d = position (*a, &i, pos);
-	sorted (d, i, a);
+	sorted (d, i, a, 1);
 	pb (a, b);
 	sort_4 (a, b);
 	pa (a, b);
