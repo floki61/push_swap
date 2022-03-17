@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sa(t_node **a, char	*str)
+void	sa(t_node **a, int i)
 {
 	int	swap;
 
@@ -21,11 +21,11 @@ void	sa(t_node **a, char	*str)
 	swap = (*a)->data;
 	(*a)->data = (*a)->next->data;
 	(*a)->next->data = swap;
-	write(1, str, 3);
-	write(1, "\n", 1);
+	if (i == 1)
+		write (1, "sa\n", 3);
 }
 
-void	sb(t_node **b)
+void	sb(t_node **b, int i)
 {
 	int	swap;
 
@@ -34,12 +34,14 @@ void	sb(t_node **b)
 	swap = (*b)->data;
 	(*b)->data = (*b)->next->data;
 	(*b)->next->data = swap;
-	write (1, "sb\n", 3);
+	if (i == 1)
+		write (1, "sb\n", 3);
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b, int i)
 {
-	sa (stack_a, "sa");
-	sb (stack_b);
-	write (1, "ss\n", 3);
+	sa (stack_a, 2);
+	sb (stack_b, 2);
+	if (i == 1)
+		write (1, "ss\n", 3);
 }

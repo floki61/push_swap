@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outils_lll.c                                       :+:      :+:    :+:   */
+/*   tools_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -87,17 +87,19 @@ void	minmax(t_node **a, t_node **b)
 	int	min;
 	int	max;
 	int	i;
+	int	j;
 
 	i = 1;
+	j = 2;
 	lent = lent_stack (*a);
 	min = check_min (*a);
 	max = check_max (*a);
-	while (lent-- > 0)
+	while (lent-- > 0 && j != 0)
 	{
 		if (i == min || i == max)
 			rotate (a, 1);
 		else
-			pb (a, b);
+			pb (a, b, 1);
 		i++;
 	}
 }

@@ -1,63 +1,110 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fcntl.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/17 23:24:18 by oel-berh          #+#    #+#             */
+/*   Updated: 2022/03/17 23:24:25 by oel-berh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strlent(char *s)
+#include "push_swap.h"
+
+static int	ft_check_line(char *str)
 {
-    int i = 0;
+	int	i;
 
-    while (s[i])
-    i++;
-    return i;
+	i = 0;
+	if (!str)
+	{
+		return (0);
+	}
+	while (str[i])
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-char *ft_strjoin(char *s, char c)
+static char	*ft_before_line(char *str)
 {
-    char *tmp;
-    int len = ft_strlent(s);
-    tmp = malloc(len + 2);
+	int	i;
 
-    strcpy(tmp,s);
-    tmp[len] = c;
-    tmp[len+1] = '\0';
-    free(s);
-    return tmp;
+	i = 0;
+	if (!str[0])
+		return (NULL);
+	while (str[i] != '\0' && str[i] != '\n')
+		i++;
+	return (ft_substr(str, 0, i + 1));
 }
 
-char *get_next_line(int fd)
+static char	*ft_after_line(char *str)
 {
-    char *s;
-    char buffer;
-    int size = 1;
-    int ret;
+	char	*s;
+	int		i;
 
-    if (fd < 0 || BUFFER_SIZE < 0)
-        return (NULL);
-    s = malloc (2);
-    s[0] =  '\0';
-    while (strchr(s,'\n') == NULL)
-    {
-        ret = read(fd, &buffer, size);
-        if (ret < 0)
-            return (NULL);
-        if (ret == 0)
-            break;
-        s = ft_strjoin(s, buffer);
-        if (buffer == '\n')
-            return s;
-    }
-    return s; 
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] == '\n')
+		{
+			s = ft_substr(str, i + 1, ft_strlen(str));
+			free (str);
+			return (s);
+		}
+		i++;
+	}
+	free (str);
+	return (NULL);
 }
 
-// int main()
-// {
-// 	int fd = open("txt.c", O_RDONLY);
-	
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// }
+static char	*ft_read_line(char	*str, int fd)
+{
+	char		*buff;
+	int			i;
+
+	i = 1;
+	buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!buff)
+	{
+		free (buff);
+		return (NULL);
+	}
+	while (ft_check_line(str) == 0 && i != 0)
+	{
+		i = read (fd, buff, BUFFER_SIZE);
+		if (i == -1)
+		{
+			free (buff);
+			return (NULL);
+		}
+		buff[i] = '\0';
+		str = ft_strjoin(str, buff);
+	}
+	free (buff);
+	return (str);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*str;
+	char		*s;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	str = ft_read_line(str, fd);
+	if (!str)
+	{
+		free(str);
+		return (NULL);
+	}
+	s = ft_before_line(str);
+	str = ft_after_line(str);
+	return (s);
+}

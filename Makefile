@@ -1,43 +1,47 @@
-NAME=push_swap.a
+NAME = push_swap
+BNAME = checker
+FLAGS = -Wall -Wextra -Werror
 
 SRCS =	push_swap.c 		\
-		check_minmax.c		\
+		tools_4.c	\
 		error.c 			\
 		libft.c				\
-		outils.c			\
+		tools.c				\
 		push.c 				\
 		rotate.c			\
-		sort0.c 			\
+		sort.c 			\
 		small_sort.c		\
 		swap.c				\
-		outils_ll.c			\
-		outils_lll.c		\
+		tools_2.c			\
+		tools_3.c			\
 
-FLAGS = -Wall -Wextra -Werror -c
+SRCSB =	error.c 			\
+		tools_2.c 			\
+		tools.c 			\
+		libft.c				\
+		get_next_line.c		\
+		checker.c			\
+		ft_split.c 			\
+		swap.c 				\
+		rotate.c 			\
+		push.c 				\
+		tools_4.c 		\
+		checker_tools.c 	\
+		
 
-OBJS =	push_swap.o			\
-		check_minmax.o		\
-		error.o				\
-		libft.o				\
-		outils.o			\
-		push.o				\
-		rotate.o			\
-		sort0.o				\
-		small_sort.o		\
-		swap.o				\
-		outils_ll.o			\
-		outils_lll.o		\
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME) :
-	@gcc $(FLAGS) $(SRCS)
-	@ar rc $(NAME) $(OBJS)
+$(NAME) : 
+	@gcc $(FLAGS) $(SRCS) -o $(NAME)
 	
-clean:
-	@rm -rf $(OBJS)
+bonus:	$(BNAME)
 
-fclean: clean
-	@rm -rf $(NAME)
+$(BNAME) :
+	@gcc $(FLAGS) $(SRCSB) -D BUFFER_SIZE=1000000 -o $(BNAME)
+
+fclean:
+	@rm -rf $(NAME) $(BNAME)
 
 re: fclean all

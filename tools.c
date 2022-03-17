@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outils.c                                           :+:      :+:    :+:   */
+/*   tools.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:31:00 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/08 04:35:42 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/12 00:04:36 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,25 +115,14 @@ int	pos_nearest_num(t_node	**a, int j)
 // 	return(tmp->data);
 // }
 
-void	print_stack(t_node *a)
-{
-	while (a != NULL)
-	{
-		printf ("%d\n", a->data);
-		a = a->next;
-	}
-}
-
-char    *its_sorted(t_node *a)
-{
-    while(a->next)
-    {
-        if(a->data > a->next->data)
-            return ("ko");
-        a = a->next;
-    }
-    return ("ok");
-}
+// void	print_stack(t_node *a)
+// {
+// 	while (a != NULL)
+// 	{
+// 		printf ("%d\n", a->data);
+// 		a = a->next;
+// 	}
+// }
 
 // void printf_value(t_node *stack)
 // {

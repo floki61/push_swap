@@ -34,7 +34,7 @@ void	reverse_r(t_node **stack, int i)
 	*stack = newnode;
 	if (i == 1)
 		write (1, "rra\n", 4);
-	else
+	else if (i == 0)
 		write (1, "rrb\n", 4);
 }
 
@@ -52,6 +52,22 @@ void	rotate(t_node **stack, int i)
 	*stack = head;
 	if (i == 1)
 		write (1, "ra\n", 3);
-	else
+	else if (i == 0)
 		write (1, "rb\n", 3);
+}
+
+void	rrr(t_node **stack_a, t_node **stack_b, int i)
+{
+	reverse_r(stack_a, 2);
+	reverse_r(stack_b, 2);
+	if (i == 1)
+		write (1, "rrr\n", 3);
+}
+
+void	rr(t_node **stack_a, t_node **stack_b, int i)
+{
+	rotate(stack_a, 2);
+	rotate(stack_b, 2);
+	if (i == 1)
+		write (1, "rr\n", 3);
 }

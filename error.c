@@ -6,11 +6,19 @@
 /*   By: oel-berh <oel-berh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:27:09 by oel-berh          #+#    #+#             */
-/*   Updated: 2022/03/09 17:40:51 by oel-berh         ###   ########.fr       */
+/*   Updated: 2022/03/17 23:26:49 by oel-berh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
 static	int	check_numbers(char *argv[])
 {
 	int	i;
@@ -62,7 +70,7 @@ int	lineardata(char *argv[], t_node **head)
 	i = 1;
 	if (!check_numbers(argv) || !duplication(argv))
 	{
-		write (1, "Error\n", 6);
+		write (2, "Error\n", 6);
 		return (0);
 	}
 	while (argv[i])
